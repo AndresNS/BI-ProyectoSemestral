@@ -1,0 +1,489 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/27/2020 4:25:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-I01RF7O"
+  DTS:CreatorName="DESKTOP-I01RF7O\Asus"
+  DTS:DTSID="{FEDE7C42-21CE-43B9-B208-A117A522BDF9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="PK_LK_Proveedor_Full"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{E44089D5-7227-47A8-9E8F-4FF1DE63759D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga LK_Proveedor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{94B79393-ECF8-4386-93C4-A5FCB3C7DC0A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga LK_Proveedor"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga LK_Proveedor\LK_Proveedor"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="LK_Proveedor"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LK_Proveedor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_Proveedor\LK_Proveedor.Connections[OleDbConnection]"
+                  connectionManagerID="{BF3285EE-A301-4802-8090-ED3A614DE9D0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].Columns[id_proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_proveedor"
+                      externalMetadataColumnId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].ExternalColumns[id_proveedor]"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[id_proveedor]" />
+                    <inputColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].Columns[nom_proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nom_proveedor"
+                      externalMetadataColumnId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].ExternalColumns[nom_proveedor]"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[nom_proveedor]" />
+                    <inputColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].Columns[id_comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_comuna"
+                      externalMetadataColumnId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].ExternalColumns[id_comuna]"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[id_comuna]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].ExternalColumns[id_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].ExternalColumns[nom_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nom_proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input].ExternalColumns[id_comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_comuna" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_Proveedor\LK_Proveedor.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_Proveedor\LK_Proveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\LK_Proveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_Proveedor\LK_Proveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga LK_Proveedor\Transaccional Proveedor"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Transaccional Proveedor"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Proveedor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Connections[OleDbConnection]"
+                  connectionManagerID="{CBCC3EFE-BFA6-4007-AAB6-5D9F4037A223}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_Transaccional.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[id_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].ExternalColumns[id_proveedor]"
+                      length="50"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[id_proveedor]"
+                      name="id_proveedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[nom_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].ExternalColumns[nom_proveedor]"
+                      length="50"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[nom_proveedor]"
+                      name="nom_proveedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[id_comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].ExternalColumns[id_comuna]"
+                      length="50"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].Columns[id_comuna]"
+                      name="id_comuna"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].ExternalColumns[id_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].ExternalColumns[nom_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nom_proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output].ExternalColumns[id_comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_comuna" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[id_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[id_proveedor]"
+                      name="id_proveedor" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[nom_proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[nom_proveedor]"
+                      name="nom_proveedor" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[id_comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[id_comuna]"
+                      name="id_comuna" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga LK_Proveedor.Paths[OLE DB Source Output]"
+              endId="Package\Carga LK_Proveedor\LK_Proveedor.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga LK_Proveedor\Transaccional Proveedor.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar LK_Proveedor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{AD5CD36D-3033-43E5-AB8D-A22D8A2A4283}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar LK_Proveedor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BF3285EE-A301-4802-8090-ED3A614DE9D0}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM PE_DW.dbo.LK_Proveedor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{D6AB93AC-7E5C-43CD-AD03-B536ABE16EF1}"
+      DTS:From="Package\Limpiar LK_Proveedor"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Carga LK_Proveedor" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Carga LK_Proveedor"
+          TopLeft="364,189" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Limpiar LK_Proveedor"
+          TopLeft="361,82" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="451.75,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga LK_Proveedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Carga LK_Proveedor\Transaccional Proveedor"
+          TopLeft="342,141" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Carga LK_Proveedor\LK_Proveedor"
+          TopLeft="370,278" />
+        <EdgeLayout
+          Id="Package\Carga LK_Proveedor.Paths[OLE DB Source Output]"
+          TopLeft="440.5,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95"
+              Start="0,0"
+              End="0,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga LK_Proveedor\Transaccional Proveedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga LK_Proveedor\LK_Proveedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

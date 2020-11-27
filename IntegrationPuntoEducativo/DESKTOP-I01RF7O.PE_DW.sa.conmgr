@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-I01RF7O.PE_DW.sa"
+  DTS:DTSID="{BF3285EE-A301-4802-8090-ED3A614DE9D0}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-I01RF7O;User ID=sa;Initial Catalog=PE_DW;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUb63nXV+o0mnCMgCZbfcyAAAAAACAAAAAAAQZgAAAAEAACAAAADKKL+/a35v3B3OV8wnOZ86fES2xdw8PBDxBth0l0iAiwAAAAAOgAAAAAIAACAAAAB5jDZGht7mef2LVefw+PtZ3tBg9sFfPH+FTsLctpMMHXAAAAARVB4vx438Ek1vq3zLva1F7t14D+VkFXJngTsRm3RZyqWEMx0ONtzG+1tYUBkdBMIZX8VDvb2xVJjaBxq+MBCKOFjWL+aSmbnGlltTqraYviOOYMMkYVSqyFsnCHsW1UhsC/T57QNZcAeBKcJ53Rf9QAAAAB+c9ZBDmK/2WaNzYKe/tgEqlyJRf6TJggg9q6XUFLY17P2Lv+dw9gBtIGi7swoiVXyage/OnRqHfUcGKVonu74=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
