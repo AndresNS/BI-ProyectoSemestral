@@ -26,19 +26,20 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-I01RF7O</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUb63nXV+o0mnCMgCZbfcyAAAAAACAAAAAAAQZgAAAAEAACAAAABuJROlRxzaQlvVJ26qWQEmNT3iVpcKOSxQbcxNAquCtgAAAAAOgAAAAAIAACAAAADOQZqfEbD25JLNcAbulMpfbiVn+uun4cVaREir8N2775AAAABVzCMJoXqQrBZN9d2kZg5H0EkEigrXUXyaCXlHSVan4PBggyKKFydcMgSem98HMsjlYxmP6ZF2b7q9lPIL6kC3vIwnqfPvyjbiEND3GDvSSQczSjAf11SmgTymHCQcMeY9AjHqBp8wKDIr89isBolMk0QgxeaGIb1hztqN6TPyjpYH3AfgbhEQbSErF9n2zVVAAAAAS39Hw/DmfGYM7EI3wFcB0AMKOTItw3Jn7hCW8x/UW+oF4nIOmEKNPqGgDhMpHCyAofdXXFwf3XgEERPem7wZQw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUb63nXV+o0mnCMgCZbfcyAAAAAACAAAAAAAQZgAAAAEAACAAAABjBbMCYWOkOeNNh2DCEz+8RrOK3734emhhWGBzT+w0ggAAAAAOgAAAAAIAACAAAABObNoD39C6682O3mlinX0ymrFqxpNGPhUGbHSgzYhVn5AAAABgYUNskTwdOuE6H0DxMy8nBw/EyzCELkZCE2N61YoeCy2zdWEs6O6Q8w3YC12kC2ynU+w82I85W7gsaHvYUqQ9BmaXzgOhXcNhJDqk7X35WOs8g0SD0Ku2eCXQzSQnDhUdbMvRt6Ll4D+h/LjYOnCTaO8omKxbiFXKaar5XQkSDWBDMWgrhVlX+bPwvWM1ZbZAAAAAgbWUWtH2MA6+KxzVETbCF5fCdmyLfnOo11EEEqapLa+hWVry3rWGWPSsdZ4WIC2XjdwemZf33tGrl8pCOyjfsg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="PK_LK_Producto_Incremental_Historicos.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Malla_Principal.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Malla_Dimensiones.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PK_LK_Proveedor_Full.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PK_LK_Cliente_Full.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PK_LK_Convenio_Marco_Full.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="PK_LK_Fecha_Full.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="PK_LK_Region_Full.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="PK_LK_FACT_Ventas.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PK_LK_Comuna_Full.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Malla_Principal.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Malla_Facts.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PK_LK_FACT_Ventas_Incremental.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DESKTOP-I01RF7O.PE_Transaccional.sa.conmgr" />
@@ -191,7 +192,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-I01RF7O;User ID=sa;Initial Catalog=PE_DW;Provider=SQLNCLI11.1;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-I01RF7O;User ID=sa;Initial Catalog=PE_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -303,33 +304,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Malla_Principal.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{50F3AF54-A346-43FD-85BF-EBE38E18E250}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Malla_Principal</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{76424EDC-5AA7-4103-9B2E-0DA9621E3443}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Malla_Dimensiones.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{DBBA2D49-9EE6-4B07-B84B-2D1E9598D338}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Malla_Dimensiones</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{AE5A765A-A758-473C-B307-8A7B81EA5243}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B46880B2-B24D-49CC-AAA3-C205E0A3B495}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -360,10 +344,10 @@
                 <SSIS:Property SSIS:Name="Name">PK_LK_Cliente_Full</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{BED0A694-9A9D-4A84-B1C6-874C4F4A0CB8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7CB8EDEA-D3F8-4BC1-A31E-93C14B9587AF}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -394,10 +378,61 @@
                 <SSIS:Property SSIS:Name="Name">PK_LK_Fecha_Full</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EFB50A9F-10CD-45A0-A621-B04707402073}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="PK_LK_Comuna_Full.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{557A8278-AFA6-44CA-8FFD-4A3CA8328036}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">PK_LK_Comuna_Full</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{22648E6F-0B7B-44DC-A792-23972011C9E5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Malla_Principal.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{6D67C24C-32E7-4FEA-AABA-1B35255914E0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Malla_Principal</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DC26BA5A-5EF1-46A9-9854-3FF868A313AD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Malla_Facts.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{69849409-AEE0-49BF-BEA3-2A76DA2FFFE0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Malla_Facts</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{625266C6-835E-4C3E-8D4F-156964445EF6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{99644622-12E5-457D-9540-B820FEB9D36D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -405,33 +440,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="PK_LK_Region_Full.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="PK_LK_FACT_Ventas_Incremental.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{E9A2E64E-0194-447F-BDFE-10036DFE0D7F}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">PK_LK_Region_Full</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{586FD407-5E44-40A5-868A-3B84415A12C9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">PK_LK_FACT_Ventas_Incremental</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">12</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{5478B7E8-B5B7-4940-B5FF-F28FD87E9AAD}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="PK_LK_FACT_Ventas.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{1AB2549E-C95E-4ED1-8B42-21E58DFE7DF9}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">PK_LK_FACT_Ventas</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FE262407-20BA-4156-9627-CBC4B9EEDE5A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{26FD78A0-A8F9-4A57-9DAE-B7ECAB8B90E1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

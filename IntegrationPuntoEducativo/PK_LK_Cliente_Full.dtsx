@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="PK_LK_Cliente_Full"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{BED0A694-9A9D-4A84-B1C6-874C4F4A0CB8}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{7CB8EDEA-D3F8-4BC1-A31E-93C14B9587AF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -119,14 +119,6 @@
                       cachedName="razon_social"
                       externalMetadataColumnId="Package\Carga LK_Cliente\LK_Cliente.Inputs[OLE DB Destination Input].ExternalColumns[razon_social]"
                       lineageId="Package\Carga LK_Cliente\Transaccional Cliente.Outputs[OLE DB Source Output].Columns[razon_social]" />
-                    <inputColumn
-                      refId="Package\Carga LK_Cliente\LK_Cliente.Inputs[OLE DB Destination Input].Columns[id_comuna]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="id_comuna"
-                      externalMetadataColumnId="Package\Carga LK_Cliente\LK_Cliente.Inputs[OLE DB Destination Input].ExternalColumns[id_comuna]"
-                      lineageId="Package\Carga LK_Cliente\Transaccional Cliente.Outputs[OLE DB Source Output].Columns[id_comuna]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -142,12 +134,6 @@
                       dataType="str"
                       length="50"
                       name="razon_social" />
-                    <externalMetadataColumn
-                      refId="Package\Carga LK_Cliente\LK_Cliente.Inputs[OLE DB Destination Input].ExternalColumns[id_comuna]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="id_comuna" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -460,7 +446,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga LK_Cliente\Transaccional Cliente">
+    design-time-name="Package\Carga LK_Cliente\LK_Cliente">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -473,7 +459,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga LK_Cliente\LK_Cliente">
+    design-time-name="Package\Carga LK_Cliente\Transaccional Cliente">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

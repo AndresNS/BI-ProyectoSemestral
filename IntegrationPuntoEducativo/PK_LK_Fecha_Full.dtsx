@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="PK_LK_Fecha_Full"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{625266C6-835E-4C3E-8D4F-156964445EF6}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{EFB50A9F-10CD-45A0-A621-B04707402073}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -206,7 +206,16 @@
 			 CONVERT(VARCHAR(04), YEAR(oc.fecha)) AS anno, 
 			 CONVERT(VARCHAR(02), MONTH(oc.fecha)) AS mes
 FROM 
-	PE_Transaccional.dbo.Cabecera_Orden_Compra oc</property>
+	PE_Transaccional.dbo.Cabecera_Orden_Compra oc
+
+UNION
+
+SELECT 
+	DISTINCT CONVERT(VARCHAR(04), YEAR(p.fecha)) + CONVERT(VARCHAR(02), MONTH(p.fecha)) AS id_fecha,
+			 CONVERT(VARCHAR(04), YEAR(p.fecha)) AS anno, 
+			 CONVERT(VARCHAR(02), MONTH(p.fecha)) AS mes
+FROM 
+	PE_Transaccional.dbo.Cabecera_Pedido p</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -465,14 +474,6 @@ FROM
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga LK_Fecha\Transaccional Fecha">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Carga LK_Fecha\LK_Fecha">
     <Properties>
       <Property>
@@ -482,6 +483,14 @@ FROM
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga LK_Fecha\Transaccional Fecha">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

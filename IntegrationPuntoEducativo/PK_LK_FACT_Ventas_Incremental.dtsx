@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-I01RF7O"
   DTS:CreatorName="DESKTOP-I01RF7O\Asus"
-  DTS:DTSID="{1AB2549E-C95E-4ED1-8B42-21E58DFE7DF9}"
+  DTS:DTSID="{586FD407-5E44-40A5-868A-3B84415A12C9}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="13322"
-  DTS:ObjectName="PK_LK_FACT_Ventas"
+  DTS:ObjectName="PK_LK_FACT_Ventas_Incremental"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{FE262407-20BA-4156-9627-CBC4B9EEDE5A}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{26FD78A0-A8F9-4A57-9DAE-B7ECAB8B90E1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -120,6 +120,12 @@
                       externalMetadataColumnId="Package\Carga LK_FACT_Ventas\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_producto]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_producto]" />
                     <inputColumn
+                      refId="Package\Carga LK_FACT_Ventas\Insertar destino.Inputs[OLE DB Destination Input].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
+                      lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]" />
+                    <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\Insertar destino.Inputs[OLE DB Destination Input].Columns[id_convenio_marco]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -170,6 +176,10 @@
                       dataType="str"
                       length="50"
                       name="id_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Ventas\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      name="fecha_inicio" />
                     <externalMetadataColumn
                       refId="Package\Carga LK_FACT_Ventas\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_convenio_marco]"
                       codePage="1252"
@@ -236,7 +246,7 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [cantidad_ventas], [id_comuna], [id_convenio_marco], [id_fecha], [id_producto], [monto_ventas], [rut_cliente] FROM [dbo].[LK_FACT_Ventas]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [cantidad_ventas], [fecha_inicio], [id_comuna], [id_convenio_marco], [id_fecha], [id_producto], [monto_ventas], [rut_cliente] FROM [dbo].[LK_FACT_Ventas]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -295,6 +305,19 @@
                           dataType="System.Int32"
                           name="ColumnType"
                           typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas.Inputs[Slowly Changing Dimension Input].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas.Inputs[Slowly Changing Dimension Input].ExternalColumns[fecha_inicio]"
+                      lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -392,6 +415,10 @@
                       refId="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas.Inputs[Slowly Changing Dimension Input].ExternalColumns[cantidad_ventas]"
                       dataType="i4"
                       name="cantidad_ventas" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas.Inputs[Slowly Changing Dimension Input].ExternalColumns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      name="fecha_inicio" />
                     <externalMetadataColumn
                       refId="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_comuna]"
                       codePage="1252"
@@ -498,7 +525,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[LK_FACT_Ventas] SET [cantidad_ventas] = ?,[monto_ventas] = ? WHERE [id_comuna] = ? AND [id_convenio_marco] = ? AND [id_fecha] = ? AND [id_producto] = ? AND [rut_cliente] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[LK_FACT_Ventas] SET [cantidad_ventas] = ?,[monto_ventas] = ? WHERE [fecha_inicio] = ? AND [id_comuna] = ? AND [id_convenio_marco] = ? AND [id_fecha] = ? AND [id_producto] = ? AND [rut_cliente] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -527,12 +554,18 @@
                       externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[cantidad_ventas]" />
                     <inputColumn
+                      refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]" />
+                    <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_comuna]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="id_comuna"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_comuna]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_convenio_marco]"
@@ -540,7 +573,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="id_convenio_marco"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_convenio_marco]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_fecha]"
@@ -548,7 +581,7 @@
                       cachedDataType="str"
                       cachedLength="6"
                       cachedName="id_fecha"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_fecha]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_producto]"
@@ -556,7 +589,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="id_producto"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_producto]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].Columns[monto_ventas]"
@@ -570,7 +603,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="rut_cliente"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[rut_cliente]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -599,9 +632,7 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="dbTimeStamp"
                       name="Param_2">
                       <properties>
                         <property
@@ -627,7 +658,7 @@
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
-                      length="6"
+                      length="50"
                       name="Param_4">
                       <properties>
                         <property
@@ -640,7 +671,7 @@
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="6"
                       name="Param_5">
                       <properties>
                         <property
@@ -655,6 +686,19 @@
                       dataType="str"
                       length="50"
                       name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Ventas\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -715,7 +759,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[LK_FACT_Ventas] SET [cantidad_ventas] = ?,[monto_ventas] = ? WHERE [id_comuna] = ? AND [id_convenio_marco] = ? AND [id_fecha] = ? AND [id_producto] = ? AND [rut_cliente] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[LK_FACT_Ventas] SET [cantidad_ventas] = ?,[monto_ventas] = ? WHERE [fecha_inicio] = ? AND [id_comuna] = ? AND [id_convenio_marco] = ? AND [id_fecha] = ? AND [id_producto] = ? AND [rut_cliente] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -744,12 +788,18 @@
                       externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[cantidad_ventas]" />
                     <inputColumn
+                      refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]" />
+                    <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_comuna]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="id_comuna"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_comuna]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_convenio_marco]"
@@ -757,7 +807,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="id_convenio_marco"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_convenio_marco]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_fecha]"
@@ -765,7 +815,7 @@
                       cachedDataType="str"
                       cachedLength="6"
                       cachedName="id_fecha"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_fecha]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_producto]"
@@ -773,7 +823,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="id_producto"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[id_producto]" />
                     <inputColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[monto_ventas]"
@@ -787,7 +837,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="rut_cliente"
-                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[rut_cliente]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -816,9 +866,7 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="dbTimeStamp"
                       name="Param_2">
                       <properties>
                         <property
@@ -844,7 +892,7 @@
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
-                      length="6"
+                      length="50"
                       name="Param_4">
                       <properties>
                         <property
@@ -857,7 +905,7 @@
                       refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="6"
                       name="Param_5">
                       <properties>
                         <property
@@ -872,6 +920,19 @@
                       dataType="str"
                       length="50"
                       name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Ventas\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -941,6 +1002,7 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
 	 DOC.id_producto, 
+	 PROD.fecha_inicio,
 	 COC.id_convenio_marco, 
 	 COC.rut_cliente, 
 	 CLI.id_comuna, 
@@ -959,7 +1021,7 @@ AND
 AND
 	PROD.fecha_termino IS NULL
 GROUP BY
-	COC.fecha, DOC.id_producto, COC.id_convenio_marco, COC.rut_cliente, CLI.id_comuna, DOC.cantidad</property>
+	COC.fecha, DOC.id_producto, COC.id_convenio_marco, COC.rut_cliente, CLI.id_comuna, DOC.cantidad, PROD.fecha_inicio</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1068,6 +1130,15 @@ GROUP BY
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[cantidad_ventas]"
                       name="cantidad_ventas"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
+                      lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
+                      name="fecha_inicio"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1109,6 +1180,10 @@ GROUP BY
                       refId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].ExternalColumns[cantidad_ventas]"
                       dataType="i4"
                       name="cantidad_ventas" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      name="fecha_inicio" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1123,6 +1198,11 @@ GROUP BY
                       length="50"
                       lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Error Output].Columns[id_producto]"
                       name="id_producto" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
+                      name="fecha_inicio" />
                     <outputColumn
                       refId="Package\Carga LK_FACT_Ventas\Ventas.Outputs[OLE DB Source Error Output].Columns[id_convenio_marco]"
                       codePage="1252"
@@ -1220,7 +1300,7 @@ GROUP BY
         <NodeLayout
           Size="189,42"
           Id="Package\Carga LK_FACT_Ventas"
-          TopLeft="412,135" />
+          TopLeft="385,262" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1233,6 +1313,18 @@ GROUP BY
           Size="111,42"
           Id="Package\Carga LK_FACT_Ventas\Ventas"
           TopLeft="246.5,5.49999999999989" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Carga LK_FACT_Ventas\OLE DB Command"
+          TopLeft="219,209.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Carga LK_FACT_Ventas\OLE DB Command 1"
+          TopLeft="445.5,209.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Carga LK_FACT_Ventas\Insertar destino"
+          TopLeft="5.50000000000006,209.5" />
         <NodeLayout
           Size="159,42"
           Id="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas"
@@ -1259,10 +1351,6 @@ GROUP BY
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Carga LK_FACT_Ventas\Insertar destino"
-          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\Carga LK_FACT_Ventas.Paths[New Output]"
           TopLeft="264.25,149.5">
@@ -1299,10 +1387,6 @@ GROUP BY
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Carga LK_FACT_Ventas\OLE DB Command"
-          TopLeft="219,209.5" />
         <EdgeLayout
           Id="Package\Carga LK_FACT_Ventas.Paths[Inferred Member Updates Output]"
           TopLeft="302,149.5">
@@ -1327,10 +1411,6 @@ GROUP BY
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Carga LK_FACT_Ventas\OLE DB Command 1"
-          TopLeft="445.5,209.5" />
         <EdgeLayout
           Id="Package\Carga LK_FACT_Ventas.Paths[Changing Attribute Updates Output]"
           TopLeft="339.75,149.5">
@@ -1379,6 +1459,19 @@ GROUP BY
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Carga LK_FACT_Ventas\Insertar destino">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Carga LK_FACT_Ventas\LK_FACT_Ventas">
     <Properties>
       <Property>
@@ -1394,6 +1487,12 @@ GROUP BY
       &lt;ColumnName&gt;cantidad_ventas&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Ventas.Outputs[OLE DB Source Output].Columns[fecha_inicio]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;fecha_inicio&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Ventas.Outputs[OLE DB Source Output].Columns[id_comuna]&lt;/IdentificationString&gt;
