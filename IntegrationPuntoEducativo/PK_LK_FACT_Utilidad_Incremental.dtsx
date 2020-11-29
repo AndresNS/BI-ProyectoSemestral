@@ -1,0 +1,1184 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/28/2020 7:53:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-I01RF7O"
+  DTS:CreatorName="DESKTOP-I01RF7O\Asus"
+  DTS:DTSID="{27EB97DA-E89F-487E-96BE-8B5BFEC2B95A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="PK_LK_FACT_Utilidad_Incremental"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{20029A63-CA1E-485C-97F3-41EE3E549CDB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga LK_FACT_Utilidad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F5435852-2A42-4A4E-B07B-50670B831AE2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga LK_FACT_Utilidad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga LK_FACT_Utilidad\Insertar destino"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insertar destino"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[LK_FACT_Utilidad]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Connections[OleDbConnection]"
+                  connectionManagerID="{BF3285EE-A301-4802-8090-ED3A614DE9D0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].Columns[id_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_producto"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_producto]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].Columns[id_convenio_marco]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_convenio_marco"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_convenio_marco]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].Columns[id_fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="id_fecha"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_fecha]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].Columns[monto_utilidad]"
+                      cachedDataType="i4"
+                      cachedName="monto_utilidad"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[monto_utilidad]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_convenio_marco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_convenio_marco" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[id_fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="id_fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[monto_utilidad]"
+                      dataType="i4"
+                      name="monto_utilidad" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[porcentaje_utilidad]"
+                      dataType="r8"
+                      name="porcentaje_utilidad" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Insertar destino.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Insertar destino.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Insertar destino.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="LK_FACT_Utilidad"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [id_convenio_marco], [id_fecha], [id_producto], [monto_utilidad] FROM [dbo].[LK_FACT_Utilidad]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Connections[LookupConnection]"
+                  connectionManagerID="{BF3285EE-A301-4802-8090-ED3A614DE9D0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_DW.sa]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].Columns[id_convenio_marco]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_convenio_marco"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_convenio_marco]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].Columns[id_fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="id_fecha"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_fecha]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].Columns[id_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_producto"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_producto]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].Columns[monto_utilidad]"
+                      cachedDataType="i4"
+                      cachedName="monto_utilidad"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[monto_utilidad]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_convenio_marco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_convenio_marco" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="id_fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input].ExternalColumns[monto_utilidad]"
+                      dataType="i4"
+                      name="monto_utilidad" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga LK_FACT_Utilidad\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[LK_FACT_Utilidad] SET [monto_utilidad] = ? WHERE [id_convenio_marco] = ? AND [id_fecha] = ? AND [id_producto] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{BF3285EE-A301-4802-8090-ED3A614DE9D0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_convenio_marco]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_convenio_marco"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="id_fecha"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_producto"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].Columns[monto_utilidad]"
+                      cachedDataType="i4"
+                      cachedName="monto_utilidad"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[LK_FACT_Utilidad] SET [monto_utilidad] = ? WHERE [id_convenio_marco] = ? AND [id_fecha] = ? AND [id_producto] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{BF3285EE-A301-4802-8090-ED3A614DE9D0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_convenio_marco]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_convenio_marco"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="id_fecha"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[id_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id_producto"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]" />
+                    <inputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[monto_utilidad]"
+                      cachedDataType="i4"
+                      cachedName="monto_utilidad"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga LK_FACT_Utilidad\Utilidad"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Utilidad"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+	PROD.id_producto,
+	COC.id_convenio_marco,
+	CONVERT(VARCHAR(04), YEAR(COC.fecha)) + CONVERT(VARCHAR(02), MONTH(COC.fecha)) AS id_fecha,
+	(SUM(DOC.monto) - SUM(DP.monto)) AS monto_utilidad,
+	((SUM(DOC.monto) - SUM(DP.monto)) * 100) / SUM(DOC.monto) AS porcentaje_utilidad
+FROM
+	PE_Transaccional.dbo.Cabecera_Orden_Compra AS COC,
+	PE_Transaccional.dbo.Detalle_Orden_Compra AS DOC,
+	PE_Transaccional.dbo.Cabecera_Pedido AS CP,
+	PE_Transaccional.dbo.Detalle_Pedido AS DP,
+	PE_DW.dbo.LK_Producto AS PROD
+WHERE
+	COC.id_cabecera_orden_compra = DOC.id_cabecera_orden_compra
+AND
+	CP.id_cabecera_pedido = DP.id_cabecera_pedido
+AND
+	DOC.id_producto = PROD.id_producto
+AND
+	DP.id_producto = PROD.id_producto
+AND
+	PROD.fecha_termino IS NULL
+GROUP BY
+	PROD.id_producto,
+	COC.id_convenio_marco,
+	COC.fecha</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga LK_FACT_Utilidad\Utilidad.Connections[OleDbConnection]"
+                  connectionManagerID="{CBCC3EFE-BFA6-4007-AAB6-5D9F4037A223}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-I01RF7O.PE_Transaccional.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[id_producto]"
+                      length="50"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]"
+                      name="id_producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[id_convenio_marco]"
+                      length="50"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]"
+                      name="id_convenio_marco"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[id_fecha]"
+                      length="6"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]"
+                      name="id_fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[monto_utilidad]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]"
+                      name="monto_utilidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[porcentaje_utilidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[porcentaje_utilidad]"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].Columns[porcentaje_utilidad]"
+                      name="porcentaje_utilidad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[id_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[id_convenio_marco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id_convenio_marco" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[id_fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="id_fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[monto_utilidad]"
+                      dataType="i4"
+                      name="monto_utilidad" />
+                    <externalMetadataColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output].ExternalColumns[porcentaje_utilidad]"
+                      dataType="i4"
+                      name="porcentaje_utilidad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[id_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[id_producto]"
+                      name="id_producto" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[id_convenio_marco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[id_convenio_marco]"
+                      name="id_convenio_marco" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[id_fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[id_fecha]"
+                      name="id_fecha" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[monto_utilidad]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[monto_utilidad]"
+                      name="monto_utilidad" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[porcentaje_utilidad]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[porcentaje_utilidad]"
+                      name="porcentaje_utilidad" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga LK_FACT_Utilidad.Paths[Changing Attribute Updates Output]"
+              endId="Package\Carga LK_FACT_Utilidad\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Carga LK_FACT_Utilidad.Paths[Inferred Member Updates Output]"
+              endId="Package\Carga LK_FACT_Utilidad\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\Carga LK_FACT_Utilidad.Paths[New Output]"
+              endId="Package\Carga LK_FACT_Utilidad\Insertar destino.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Outputs[New Output]" />
+            <path
+              refId="Package\Carga LK_FACT_Utilidad.Paths[OLE DB Source Output]"
+              endId="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga LK_FACT_Utilidad\Utilidad.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Carga LK_FACT_Utilidad"
+          TopLeft="374,123" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga LK_FACT_Utilidad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="114,42"
+          Id="Package\Carga LK_FACT_Utilidad\Utilidad"
+          TopLeft="245,5.49999999999989" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad"
+          TopLeft="221,107.5" />
+        <EdgeLayout
+          Id="Package\Carga LK_FACT_Utilidad.Paths[OLE DB Source Output]"
+          TopLeft="302,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Carga LK_FACT_Utilidad\Insertar destino"
+          TopLeft="5.50000000000006,209.5" />
+        <EdgeLayout
+          Id="Package\Carga LK_FACT_Utilidad.Paths[New Output]"
+          TopLeft="263.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-181.5,60"
+              Start="0,0"
+              End="-181.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6477732793522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6477732793522"
+                    Point2="0,20.6477732793522"
+                    Point3="-4,20.6477732793522" />
+                  <mssgle:LineSegment
+                    End="-177.5,20.6477732793522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-177.5,20.6477732793522"
+                    Point2="-181.5,20.6477732793522"
+                    Point3="-181.5,24.6477732793522" />
+                  <mssgle:LineSegment
+                    End="-181.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.84138671875,25.6477732793522,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Carga LK_FACT_Utilidad\OLE DB Command"
+          TopLeft="219,209.5" />
+        <EdgeLayout
+          Id="Package\Carga LK_FACT_Utilidad.Paths[Inferred Member Updates Output]"
+          TopLeft="302,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Carga LK_FACT_Utilidad\OLE DB Command 1"
+          TopLeft="445.5,209.5" />
+        <EdgeLayout
+          Id="Package\Carga LK_FACT_Utilidad.Paths[Changing Attribute Updates Output]"
+          TopLeft="340.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.5,60"
+              Start="0,0"
+              End="192.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6477732793522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6477732793522"
+                    Point2="0,20.6477732793522"
+                    Point3="4,20.6477732793522" />
+                  <mssgle:LineSegment
+                    End="188.5,20.6477732793522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="188.5,20.6477732793522"
+                    Point2="192.5,20.6477732793522"
+                    Point3="192.5,24.6477732793522" />
+                  <mssgle:LineSegment
+                    End="192.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.71609375,25.6477732793522,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga LK_FACT_Utilidad\Utilidad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga LK_FACT_Utilidad\LK_FACT_Utilidad">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{BF3285EE-A301-4802-8090-ED3A614DE9D0}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[LK_FACT_Utilidad]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Utilidad.Outputs[OLE DB Source Output].Columns[id_convenio_marco]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;id_convenio_marco&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Utilidad.Outputs[OLE DB Source Output].Columns[id_fecha]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;id_fecha&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Utilidad.Outputs[OLE DB Source Output].Columns[id_producto]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;id_producto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Utilidad.Outputs[OLE DB Source Output].Columns[monto_utilidad]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;monto_utilidad&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insertar destino&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
